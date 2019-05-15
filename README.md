@@ -3,15 +3,14 @@ This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in 
 
 If you use this work or find helpful, please cite as 
 
-    @misc{lia_corrales_2015_15991,
+    @misc{islamEnabling,
         author       = {Muhammad Aminul Islam, Derek T. Anderson, Timothy C. Havens, Grant Scott, James M. Keller},
         title        = {{Enabling Explainable Fusion in Deep Learning with Fuzzy Integral Neural Networks}},
         journal={IEEE Transactions on Fuzzy Systems},
         year         = 2019,
-        doi          = {10.5281/zenodo.15991},
-        version      = {1.0},
+        doi          = {10.1109/TFUZZ.2019.2917124},
         publisher    = {IEEE},
         }
 
-This repo consists of the ChI Neuron module and an example grandient based learning for a synthetic dataset. 
+This repo consists of the ChI Neuron module and an example that shows learning of FMs from a synthetic dataset. 
 
