@@ -13,5 +13,5 @@ If you use this work or find helpful, please cite as
         publisher    = {IEEE},
         }
 
-This repo consists of the ChI Neuron module and example. 
+This repo consists of the ChI Neuron module and an example grandient based learning for a synthetic dataset. 
 
