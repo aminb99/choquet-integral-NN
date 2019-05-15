@@ -3,7 +3,7 @@ This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in 
 
 If you use this work or find helpful, please cite as 
 
-    @misc{islamEnabling,
+    @misc{islam2019Enabling,
         author       = {Muhammad Aminul Islam, Derek T. Anderson, Timothy C. Havens, Grant Scott, James M. Keller},
         title        = {{Enabling Explainable Fusion in Deep Learning with Fuzzy Integral Neural Networks}},
         journal={IEEE Transactions on Fuzzy Systems},
