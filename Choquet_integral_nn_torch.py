@@ -122,7 +122,7 @@ if __name__=="__main__":
     
     
     # training samples size
-    M = 300
+    M = 700
     X_train = np.random.rand(M,N_in)*2-1
     #    
     #    X_train = np.array([[0.4,0.2,0.1],
@@ -131,12 +131,13 @@ if __name__=="__main__":
     #                        [0.3,0.6,0.5],
     #                        [0.4,0.7,0.8],
     #                        [0.7,0.4,0.8]])
+    # consider two OWAs, (i) softmax = [0.7, 0.2, 0.1] and (ii) softmin = [0.1, 0.2, 0.7]
     OWA = np.array([[0.7, 0.2, 0.1],[0.1,0.2,0.7]])
     #OWA[:] = OWA[::-1]
     #label_train = np.matmul(np.sort(X_train), OWA.T)
     label_train = np.matmul(np.sort(X_train), np.fliplr(OWA).T)
     
-    learning_rate = 0.4;
+    learning_rate = 0.3;
     
     # Construct our loss function and an Optimizer. The call to model.parameters()
     # in the SGD constructor will contain the learnable parameters of the two
@@ -144,7 +145,7 @@ if __name__=="__main__":
     criterion = torch.nn.MSELoss(reduction='mean')
     optimizer = torch.optim.SGD(net.parameters(), lr=learning_rate)   
     
-    num_epochs = 100;
+    num_epochs = 300;
     
     X_train = torch.tensor(X_train,dtype=torch.float)
     
@@ -170,6 +171,7 @@ if __name__=="__main__":
     paramsNN = paramsList[0]
     
     FM = net.chi_nn_vars(paramsNN)
-    print(FM)
+    print("learned FMs:\n", FM)
+
         
 
