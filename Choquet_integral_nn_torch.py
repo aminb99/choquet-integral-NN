@@ -48,7 +48,9 @@ class Choquet_integral(torch.nn.Module):
         self.N_in = N_in
         self.N_out = N_out
         self.nVars = 2**self.N_in - 2
-        dummy = (1./self.nVars) * torch.ones((self.nVars, self.N_out), requires_grad=True)
+        
+        # The FM is initialized with mean
+        dummy = (1./self.N_in) * torch.ones((self.nVars, self.N_out), requires_grad=True)
 #        self.vars = torch.nn.Parameter( torch.Tensor(self.nVars,N_out))
         self.vars = torch.nn.Parameter(dummy)
         
@@ -77,6 +79,7 @@ class Choquet_integral(torch.nn.Module):
             
         return ChI
     
+    # Converts NN-vars to FM vars
     def chi_nn_vars(self, chi_vars):
 #        nVars,_ = chi_vars.size()
         chi_vars = torch.abs(chi_vars)
@@ -97,21 +100,6 @@ class Choquet_integral(torch.nn.Module):
         FM = torch.min(FM, torch.ones(1))  
         
         return FM
-    
-class Choquet_integral_net(torch.nn.Module):
-    
-    def __init__(self, input_size,hidden_size, num_classes):
-        super(Choquet_integral_net,self).__init__()
-        self.ChI_layer1 = Choquet_integral(input_size,hidden_size)
-#        self.relu = torch.nn.ReLU()
-        self.ChI_layer2 = Choquet_integral(hidden_size, num_classes)
-        
-        
-    def forward(self,inputs):
-        out = self.ChI_layer1(inputs)
-#        out = self.relu(out)
-        out = self.ChI_layer2(out)
-        return out
     
     
 if __name__=="__main__":
