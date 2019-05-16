@@ -154,12 +154,10 @@ if __name__=="__main__":
         loss.backward()
         optimizer.step()  
         
-        
-    paramsList = list(net.parameters())
-    paramsNN = paramsList[0]
     
-    FM = net.chi_nn_vars(paramsNN)
-    print("learned FMs:\n", FM)
+    FM = (net.chi_nn_vars(net.vars).cpu()).detach().numpy()
+    print("learned FM1:\n", FM[:,0])
+    print("learned FM2:\n",FM[:,1])
 
         
 
