@@ -1,4 +1,4 @@
-# The Chqouet Integral Neural Network
+# The Choquet Integral Neural Network
 This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in Deep Learning with Fuzzy Integral Neural Networks](https://arxiv.org/pdf/1905.04394.pdf)".  If you use this work, please cite as 
 
     @misc{islam2019Enabling,
