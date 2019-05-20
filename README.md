@@ -10,5 +10,5 @@ This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in 
         publisher    = {IEEE},
         }
 
-This repo consists of the ChI Neuron module described in the paper and an example that shows the ChI learning from a synthetic dataset. 
+This repo consists of the ChI Neuron module described in the paper and an example that illustrates the ChI learning from a synthetic dataset. 
 
