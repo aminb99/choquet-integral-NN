@@ -10,7 +10,7 @@ This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in 
         publisher    = {IEEE},
         }
 
-This repo consists of the Choquet Integral Neuron module described in the paper and an example that illustrates learning the Choquet integral from a synthetic dataset. 
+This repo consists of the Choquet Integral Neuron module described in the paper and an example that illustrates learning of the Choquet integral from a synthetic dataset. 
 
 ## Installation/Dependencies
 The code uses [PyTorch](https://pytorch.org/) deep learning frameworks. So, if you haven't it installed on your system, please follow the instructions [here](https://pytorch.org/get-started/locally/).
