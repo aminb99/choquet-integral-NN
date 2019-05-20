@@ -10,5 +10,5 @@ This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in 
         publisher    = {IEEE},
         }
 
-This repo consists of the ChI Neuron module and an example that shows learning of FMs from a synthetic dataset. 
+This repo consists of the ChI Neuron module described in the paper and an example that shows learning of FMs from a synthetic dataset. 
 
