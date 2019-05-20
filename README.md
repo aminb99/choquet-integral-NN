@@ -1,7 +1,7 @@
 # The Choquet Integral Neural Network
 This is a PyTorch implementation of the paper, "[Enabling Explainable Fusion in Deep Learning with Fuzzy Integral Neural Networks](https://arxiv.org/pdf/1905.04394.pdf)".  If you use this work, please cite as 
 
-    @misc{islam2019Enabling,
+    @article{islam2019Enabling,
         author       = {Muhammad Aminul Islam, Derek T. Anderson, Timothy C. Havens, Grant Scott, James M. Keller},
         title        = {{Enabling Explainable Fusion in Deep Learning with Fuzzy Integral Neural Networks}},
         journal={IEEE Transactions on Fuzzy Systems},
