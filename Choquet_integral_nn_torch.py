@@ -106,22 +106,35 @@ if __name__=="__main__":
     
     # training samples size
     M = 700
-    X_train = np.random.rand(M,N_in)*2-1
     
+    # number of inputs
     N_in = 3
-    N_out = 2     
+    
+    # number of outputs aka number of Choquet integral neurons
+    N_out = 2  
+    
+    # Create a synthetic dataset via random sampling from a normal distribution with mean =-1 and std=2
+    X_train = np.random.rand(M,N_in)*2-1
             
+    # Let's specify the FMs  (There will be N_out number of FMs)
+    # Herein we adopt binary encoding instead of lexicographic encoding to represent a FM that is easier to code. 
+    # As for example, an FM for three inputs using lexicographic encoding is, g = {g_1, g_2, g_3, g_{12}, g_{13}, g_{23}, g_{123}}.
+    # whereas its binary encoding is g = {g_1, g_2, g_{12}, g_3 g_{13}, g_{23}, g_{123}}.
+    
+    # For simplicity, here we use OWA. 
+    
     OWA = np.array([[0.7, 0.2, 0.1], # this is soft-max
                     [0.1,0.2,0.7]])  # soft-min
     
-    # Herein we follow binary encoding instead of lexicographic encoding to represetn a FM. 
-    # As for example, an FM for three inputs using binary encoding is, g = {g_1, g_2, g_{12}, g_3, g_{13}, g_{23}, g_{123}.
+    # The FMs of the above OWAs in binary encoding
+    # FM = [[0.7, 0.7, 0.9, 0.7, 0.9, 0.9, 1.0].
+    #      [0.1, 0.1, 0.3, 0.1, 0.3, 0.3, 1.0]]
     
-    #OWA[:] = OWA[::-1]
-    #label_train = np.matmul(np.sort(X_train), OWA.T)
+    # Generate the label or the groundtruth based on the provided FMs/OWAs. The labels are two dimentional
     label_train = np.matmul(np.sort(X_train), np.fliplr(OWA).T)
     
-    # build a Choquet integral neuron with N_in inputs and N_out outputs
+    # Now we want to recover the FMs from the training data and groundtruth
+    # First, build a Choquet integral neuron with N_in inputs and N_out outputs
     net = Choquet_integral(N_in,N_out)
     
     # set the optimization algorithms and paramters the learning
@@ -135,29 +148,27 @@ if __name__=="__main__":
     
     num_epochs = 300;
     
+    # convert from numpy to torch tensor
     X_train = torch.tensor(X_train,dtype=torch.float)
-    
     label_train = torch.tensor(label_train,dtype=torch.float)
     
+    # optimize
     for t in range(num_epochs):
         # Forward pass: Compute predicted y by passing x to the model
         y_pred = net(X_train)
     
-        # Compute and print loss
+        # Compute the loss
         loss = criterion(y_pred, label_train)
-    #    print(t, loss.item())
     
         # Zero gradients, perform a backward pass, and update the weights.
-        optimizer.zero_grad()
-    #    net.FM.backward(retain_graph=True)
-    #    print(net.FM.grad)
+        optimizer.zero_grad())
         loss.backward()
         optimizer.step()  
         
-    
-    FM = (net.chi_nn_vars(net.vars).cpu()).detach().numpy()
-    print("learned FM1:\n", FM[:,0])
-    print("learned FM2:\n",FM[:,1])
+    # Finally, the learned FMs
+    FM_learned = (net.chi_nn_vars(net.vars).cpu()).detach().numpy()
+    print("learned FM1:\n", FM_learned[:,0])
+    print("learned FM2:\n",FM_learned[:,1])
 
         
 
