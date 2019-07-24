@@ -103,28 +103,28 @@ class Choquet_integral(torch.nn.Module):
     
     
 if __name__=="__main__":
-    N_in = 3
-    N_out = 2     
-        
-    net = Choquet_integral(N_in,N_out)
-    
     
     # training samples size
     M = 700
     X_train = np.random.rand(M,N_in)*2-1
-    #    
-    #    X_train = np.array([[0.4,0.2,0.1],
-    #                        [0.4,0.1,0.2],
-    #                        [0.5,0.6,0.3],
-    #                        [0.3,0.6,0.5],
-    #                        [0.4,0.7,0.8],
-    #                        [0.7,0.4,0.8]])
-    # consider two OWAs, (i) softmax = [0.7, 0.2, 0.1] and (ii) softmin = [0.1, 0.2, 0.7]
-    OWA = np.array([[0.7, 0.2, 0.1],[0.1,0.2,0.7]])
+    
+    N_in = 3
+    N_out = 2     
+            
+    OWA = np.array([[0.7, 0.2, 0.1], # this is soft-max
+                    [0.1,0.2,0.7]])  # soft-min
+    
+    # Herein we follow binary encoding instead of lexicographic encoding to represetn a FM. 
+    # As for example, an FM for three inputs using binary encoding is, g = {g_1, g_2, g_{12}, g_3, g_{13}, g_{23}, g_{123}.
+    
     #OWA[:] = OWA[::-1]
     #label_train = np.matmul(np.sort(X_train), OWA.T)
     label_train = np.matmul(np.sort(X_train), np.fliplr(OWA).T)
     
+    # build a Choquet integral neuron with N_in inputs and N_out outputs
+    net = Choquet_integral(N_in,N_out)
+    
+    # set the optimization algorithms and paramters the learning
     learning_rate = 0.3;
     
     # Construct our loss function and an Optimizer. The call to model.parameters()
