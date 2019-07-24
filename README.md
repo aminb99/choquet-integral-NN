@@ -23,4 +23,17 @@ $ python Choquet_integral_nn_torch.py
 ```
 
 ## Example
-The Choquet_integral_nn_torch.py includes an example to learn an Ordered Weighted Averaging (OWA) from  a synthetic dataset, where instances are randomly generated.
+The Choquet_integral_nn_torch.py includes an example to learn an Ordered Weighted Averaging (OWA) from  a synthetic dataset.
+
+1. First, a training dataset of M samples for N sources are randomly genereated from a normal distribution
+2. Specify the FMs. Here, we used an OWA for simplicity. 
+3. Given this FM, compute the label or graoundtruth for the training dataset.
+4. Create a NN with two output neurons.
+5. Learn or run 
+
+
+## Notes
+This implementation differs from the article in the respect that we used sort operations to compute the coefficients whereas the article uses a network termed coefficient network that employs max and min and does not require sorting operation.   
+
+
+
