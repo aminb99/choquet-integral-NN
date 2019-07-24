@@ -16,11 +16,9 @@ This repo consists of the Choquet Integral Neuron module described in the paper 
 The code uses [PyTorch](https://pytorch.org/) deep learning frameworks. So, if you haven't it installed on your system, please follow the instructions [here](https://pytorch.org/get-started/locally/). We recommend anaconda as a package manager, which takes care all dependencies.
 
 After installing pytorch and all its dependencies, run the following commands to download and run the example.
-
 ```
 $ git clone https://github.com/aminb99/choquet-integral-NN.git
 $ cd choquet-integral-NN
 $ python Choquet_integral_nn_torch.py
-
 ```
 
