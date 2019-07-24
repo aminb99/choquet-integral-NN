@@ -17,8 +17,10 @@ The code uses [PyTorch](https://pytorch.org/) deep learning frameworks. So, if y
 
 After installing pytorch and all its dependencies, run the following commands to download and run the example.
 
+```
 $ git clone https://github.com/aminb99/choquet-integral-NN.git
 $ cd choquet-integral-NN
 $ python Choquet_integral_nn_torch.py
 
+```
 
