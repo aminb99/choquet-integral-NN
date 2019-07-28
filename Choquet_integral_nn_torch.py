@@ -161,7 +161,7 @@ if __name__=="__main__":
         loss = criterion(y_pred, label_train)
     
         # Zero gradients, perform a backward pass, and update the weights.
-        optimizer.zero_grad())
+        optimizer.zero_grad()
         loss.backward()
         optimizer.step()  
         
