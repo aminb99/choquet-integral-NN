@@ -130,8 +130,9 @@ if __name__=="__main__":
     # FM = [[0.7, 0.7, 0.9, 0.7, 0.9, 0.9, 1.0].
     #      [0.1, 0.1, 0.3, 0.1, 0.3, 0.3, 1.0]]
     
-    print('Actual/groundtruth FM1 in binary encoding', np.array([0.7, 0.7, 0.9, 0.7, 0.9, 0.9, 1.0]))
-    print('Actual/groundtruth FM1 in binary encoding',  np.array([0.1, 0.1, 0.3, 0.1, 0.3, 0.3, 1.0]))
+    print('Actual/groundtruth FMs in binary encoding:')
+    print('FM1 = ', np.array([0.7, 0.7, 0.9, 0.7, 0.9, 0.9, 1.0]))
+    print('FM2 = ', np.array([0.1, 0.1, 0.3, 0.1, 0.3, 0.3, 1.0]))
 
     # Generate the label or the groundtruth based on the provided FMs/OWAs. The labels are two dimentional
     label_train = np.matmul(np.sort(X_train), np.fliplr(OWA).T)
@@ -170,8 +171,9 @@ if __name__=="__main__":
         
     # Finally, the learned FMs
     FM_learned = (net.chi_nn_vars(net.vars).cpu()).detach().numpy()
-    print("learned FM1:\n", FM_learned[:,0])
-    print("learned FM2:\n",FM_learned[:,1])
+    print('Learned FMs:')
+    print('FM1 = ', FM_learned[:,0])
+    print('FM2 = ',FM_learned[:,1])
 
         
 
