@@ -171,7 +171,7 @@ if __name__=="__main__":
         
     # Finally, the learned FMs
     FM_learned = (net.chi_nn_vars(net.vars).cpu()).detach().numpy()
-    print('Learned FMs:')
+    print('\n\nLearned FMs:')
     print('FM1 = ', FM_learned[:,0])
     print('FM2 = ',FM_learned[:,1])
 
